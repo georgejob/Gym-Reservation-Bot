@@ -1,9 +1,12 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from time import sleep
 
 class GymBot():
     def __init__(self):
-        self.driver = webdriver.Chrome()
+        options = Options()
+        options.headless = True
+        self.driver = webdriver.Chrome(chrome_options = options, executable_path = '/home/georgejob6/GymBot/chromedriver')
 
     def login(self):
         self.driver.get('https://services.rec.rutgers.edu/Program/GetProgramDetails?courseId=694b3079-a4f9-4988-94d5-6374f9d3fe40&semesterId=61d7fedd-4078-466e-afda-7003ce3123ac')
@@ -25,7 +28,8 @@ class GymBot():
         netIDLogin.click()
 
     def register(self):
-        registerButton = self.driver.find_element_by_xpath('//*[@id="mainContent"]/div[2]/div[7]/div[3]/div/div/div/button')
+        #11 am slot, 5 days from now ~ //*[@id="mainContent"]/div[2]/div[7]/div[39]/div/div/div/button
+        registerButton = self.driver.find_element_by_xpath('//*[@id="mainContent"]/div[2]/div[7]/div[1]/div/div/div/button')
         registerButton.click()
         sleep(1)
 
