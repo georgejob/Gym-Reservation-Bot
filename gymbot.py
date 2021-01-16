@@ -33,21 +33,21 @@ class GymBot():
 
         try:
             registerButton = self.driver.find_element_by_xpath('//*[@id="mainContent"]/div[2]/div[7]/div[49]/div/div/div/button')
-            print("Registered for 49th")
+            print("Registering for 49th card")
         except:
             try:
                 registerButton = self.driver.find_element_by_xpath('//*[@id="mainContent"]/div[2]/div[7]/div[43]/div/div/div/button')
-                print("Registered for 43rd")
+                print("Registering for 43rd card")
             except:
                 try:
                     registerButton = self.driver.find_element_by_xpath('//*[@id="mainContent"]/div[2]/div[7]/div[37]/div/div/div/button')
-                    print("Registered for 37th")
+                    print("Registering for 37th card")
                 except:
                     try:
                         registerButton = self.driver.find_element_by_xpath('//*[@id="mainContent"]/div[2]/div[7]/div[35]/div/div/div/button')
-                        print("Registered for 35th")
+                        print("Registering for 35th card")
                     except:
-                        registerButton = self.driver.find_element_by_xpath('//*[@id="mainContent"]/div[2]/div[7]/div[33]/div/div/div/button')
+                        print("Unable to find card...")
 
         registerButton.click()
         sleep(2)
@@ -79,12 +79,18 @@ class GymBot():
 
         checkoutButton2 = self.driver.find_element_by_xpath('//*[@id="ExistingCardsModal"]/div/div/div[2]/div/div[2]/button')
         checkoutButton2.click()
+        sleep(1)
+
 
 
 if __name__ == '__main__':
     bot = GymBot()
-    bot.login()
-    sleep(2)
-    bot.register()
-    sleep(2)
-    bot.checkout()
+
+    try:
+        bot.login()
+        sleep(2)
+        bot.register()
+        sleep(2)
+        bot.checkout()
+    finally:
+        bot.driver.quit()
