@@ -1,0 +1,4 @@
+Crontab code to run the script everyday at 11AM EST (time converted to UTC due to server running in UTC):
+
+
+1 16 * * * python3 /home/georgejob6/GymBot/gymbot.py >> /home/georgejob6/gboutput.txt 2>&1
