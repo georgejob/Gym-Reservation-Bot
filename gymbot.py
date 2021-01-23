@@ -32,7 +32,7 @@ class GymBot():
         # 11 am slot, 5 days from now ~ //*[@id="mainContent"]/div[2]/div[7]/div[39]/div/div/div/button //*[@id="mainContent"]/div[2]/div[7]/div[33]/div/div/div/button
 
         try:
-            registerButton = self.driver.find_element_by_xpath('//*[@id="mainContent"]/div[2]/div[7]/div[49]/div/div/div/button')
+            registerButton = self.driver.find_element_by_xpath('//*[@id="mainContent"]/div[2]/div[7]/div[51]/div/div/div/button')
             print("Registering for 49th card")
         except:
             try:
